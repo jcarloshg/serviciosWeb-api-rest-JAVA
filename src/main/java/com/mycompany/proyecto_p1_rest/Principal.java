@@ -34,6 +34,7 @@ public class Principal extends javax.swing.JFrame {
     private Connection conection;
     ResponseGetDetails resProdDetails;
     Detail proDetails;
+    String rol;
 
     /**
      * Creates new form Principal
@@ -47,13 +48,18 @@ public class Principal extends javax.swing.JFrame {
         categoFormComBox.addItem("MGS");
         categoFormComBox.addItem("LBS");
         
+        rolesComboBox.removeAllItems();
+        rolesComboBox.addItem("Almacen");
+        rolesComboBox.addItem("Ventas");
+        
         Image logoScaled = logo.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
         Icon logoIcon = new ImageIcon(logoScaled);
         logoLabel.setIcon(logoIcon);
         
-        Image imgAvatar = avatar.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+        Image imgAvatar = avatar.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
         Icon iconAvatar = new ImageIcon(imgAvatar);
-        userIconLabel.setIcon(iconAvatar);
+        logoUserLabel.setIcon(iconAvatar);
+        
     }
     
     private void changeCard(JLayeredPane layedPanel, JPanel panel) {
@@ -87,18 +93,23 @@ public class Principal extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
+        userIconLabel = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLayeredPane2 = new javax.swing.JLayeredPane();
         login = new javax.swing.JPanel();
         btnIniciarSesion = new javax.swing.JButton();
         userTextField = new javax.swing.JTextField();
-        passTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         logoLabel = new javax.swing.JLabel();
+        rolesComboBox = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        passTextField = new javax.swing.JPasswordField();
         operations = new javax.swing.JPanel();
-        isbnTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        isbnTextField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         searchIsbnBtn = new javax.swing.JButton();
         searchCategoryBtn = new javax.swing.JButton();
@@ -114,6 +125,7 @@ public class Principal extends javax.swing.JFrame {
         prodsCateTextArea = new javax.swing.JTextArea();
         jSeparator2 = new javax.swing.JSeparator();
         categoryTextField = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
         FormProduct = new javax.swing.JPanel();
         titleFormLabel = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -132,31 +144,40 @@ public class Principal extends javax.swing.JFrame {
         aceptButton = new javax.swing.JButton();
         categoFormComBox = new javax.swing.JComboBox<>();
         updatePassPanel = new javax.swing.JPanel();
-        newPassTextField = new javax.swing.JTextField();
-        confimPassTextField = new javax.swing.JTextField();
-        currentPassTextField = new javax.swing.JTextField();
         updatePassBtn = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         cancelUpdatePassBtn = new javax.swing.JButton();
-        btnIngresar = new javax.swing.JButton();
-        stateLabel = new javax.swing.JLabel();
+        currentPassTextField = new javax.swing.JPasswordField();
+        confiPassTextField = new javax.swing.JPasswordField();
+        newPassTextField = new javax.swing.JPasswordField();
         userLabel = new javax.swing.JLabel();
-        jSeparator4 = new javax.swing.JSeparator();
-        userIconLabel = new javax.swing.JLabel();
+        logoUserLabel = new javax.swing.JLabel();
+        stateLabel = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
         menu = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         updatePassMenuItem = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        userIconLabel.setText("gsdfgsdfgsdf");
+        userIconLabel.setPreferredSize(new java.awt.Dimension(40, 40));
+
         setTitle("David & Joshep SA de CV");
-        setPreferredSize(new java.awt.Dimension(600, 450));
+        setBackground(new java.awt.Color(255, 51, 51));
+        setPreferredSize(new java.awt.Dimension(600, 510));
+
+        jPanel1.setBackground(new java.awt.Color(242, 255, 248));
+        jPanel1.setPreferredSize(new java.awt.Dimension(600, 450));
 
         jLayeredPane2.setLayout(new java.awt.CardLayout());
+
+        login.setBackground(new java.awt.Color(242, 255, 248));
+        login.setPreferredSize(new java.awt.Dimension(600, 450));
+        login.setLayout(new java.awt.GridBagLayout());
 
         btnIniciarSesion.setText("Inisiar Sesion");
         btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -164,62 +185,77 @@ public class Principal extends javax.swing.JFrame {
                 btnIniciarSesionActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        login.add(btnIniciarSesion, gridBagConstraints);
 
-        passTextField1.setForeground(new java.awt.Color(200, 204, 198));
+        userTextField.setPreferredSize(new java.awt.Dimension(100, 24));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 139;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        login.add(userTextField, gridBagConstraints);
 
         jLabel1.setText("Usuario");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        login.add(jLabel1, gridBagConstraints);
 
         jLabel2.setText("Contraseña");
         jLabel2.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        login.add(jLabel2, gridBagConstraints);
 
         logoLabel.setAlignmentY(0.0F);
         logoLabel.setMaximumSize(new java.awt.Dimension(100, 100));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        login.add(logoLabel, gridBagConstraints);
 
-        javax.swing.GroupLayout loginLayout = new javax.swing.GroupLayout(login);
-        login.setLayout(loginLayout);
-        loginLayout.setHorizontalGroup(
-            loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(loginLayout.createSequentialGroup()
-                .addGap(136, 136, 136)
-                .addGroup(loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(passTextField1)
-                    .addComponent(userTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(210, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginLayout.createSequentialGroup()
-                        .addComponent(btnIniciarSesion)
-                        .addGap(207, 207, 207))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginLayout.createSequentialGroup()
-                        .addComponent(logoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(267, 267, 267))))
-        );
-        loginLayout.setVerticalGroup(
-            loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginLayout.createSequentialGroup()
-                .addContainerGap(86, Short.MAX_VALUE)
-                .addComponent(logoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addComponent(btnIniciarSesion)
-                .addGap(41, 41, 41))
-        );
+        rolesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        login.add(rolesComboBox, gridBagConstraints);
+
+        jLabel5.setText("Rol");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        login.add(jLabel5, gridBagConstraints);
+
+        passTextField.setPreferredSize(new java.awt.Dimension(240, 24));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        login.add(passTextField, gridBagConstraints);
 
         jLayeredPane2.add(login, "card3");
 
+        operations.setBackground(new java.awt.Color(242, 255, 248));
+
         jLabel3.setText("ISBN");
+
+        isbnTextField.setPreferredSize(new java.awt.Dimension(100, 24));
 
         jLabel4.setText("Categorias");
 
@@ -239,10 +275,14 @@ public class Principal extends javax.swing.JFrame {
 
         operationsLayeredPane.setLayout(new java.awt.CardLayout());
 
+        detailProdJPanel.setBackground(new java.awt.Color(242, 255, 248));
+
         detailTextArea.setColumns(20);
         detailTextArea.setRows(5);
+        detailTextArea.setPreferredSize(new java.awt.Dimension(10, 10));
         jScrollPane2.setViewportView(detailTextArea);
 
+        updateButton.setIcon(new javax.swing.ImageIcon("/home/jose/Documentos/octavo_semestre/servicios_web/proyecto/proyecto_p1_rest/imgs/lapiz.png")); // NOI18N
         updateButton.setText("Actualizar");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,6 +290,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        deleteButton.setIcon(new javax.swing.ImageIcon("/home/jose/Documentos/octavo_semestre/servicios_web/proyecto/proyecto_p1_rest/imgs/trash.png")); // NOI18N
         deleteButton.setText("Eliminar");
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -257,6 +298,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        createButton.setIcon(new javax.swing.ImageIcon("/home/jose/Documentos/octavo_semestre/servicios_web/proyecto/proyecto_p1_rest/imgs/add.png")); // NOI18N
         createButton.setText("Crear Producto");
         createButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,36 +310,34 @@ public class Principal extends javax.swing.JFrame {
         detailProdJPanel.setLayout(detailProdJPanelLayout);
         detailProdJPanelLayout.setHorizontalGroup(
             detailProdJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, detailProdJPanelLayout.createSequentialGroup()
-                .addContainerGap(453, Short.MAX_VALUE)
-                .addGroup(detailProdJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(createButton))
-                .addGap(54, 54, 54))
-            .addGroup(detailProdJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(detailProdJPanelLayout.createSequentialGroup()
-                    .addGap(73, 73, 73)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(263, Short.MAX_VALUE)))
+            .addGroup(detailProdJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addGroup(detailProdJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(createButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(deleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(updateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 23, Short.MAX_VALUE))
         );
         detailProdJPanelLayout.setVerticalGroup(
             detailProdJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(detailProdJPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(updateButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deleteButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
-                .addComponent(createButton)
-                .addGap(32, 32, 32))
-            .addGroup(detailProdJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(detailProdJPanelLayout.createSequentialGroup()
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 32, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, detailProdJPanelLayout.createSequentialGroup()
+                .addGroup(detailProdJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(detailProdJPanelLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(updateButton)
+                        .addGap(6, 6, 6)
+                        .addComponent(deleteButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                        .addComponent(createButton))
+                    .addComponent(jScrollPane2))
+                .addContainerGap())
         );
 
         operationsLayeredPane.add(detailProdJPanel, "card2");
+
+        prodsCateJPanel.setBackground(new java.awt.Color(242, 255, 248));
 
         prodsCateTextArea.setColumns(20);
         prodsCateTextArea.setRows(5);
@@ -307,24 +347,32 @@ public class Principal extends javax.swing.JFrame {
         prodsCateJPanel.setLayout(prodsCateJPanelLayout);
         prodsCateJPanelLayout.setHorizontalGroup(
             prodsCateJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 637, Short.MAX_VALUE)
-            .addGroup(prodsCateJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(prodsCateJPanelLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(prodsCateJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE)
+                .addContainerGap())
         );
         prodsCateJPanelLayout.setVerticalGroup(
             prodsCateJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 237, Short.MAX_VALUE)
-            .addGroup(prodsCateJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(prodsCateJPanelLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(prodsCateJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         operationsLayeredPane.add(prodsCateJPanel, "card3");
+
+        categoryTextField.setPreferredSize(new java.awt.Dimension(100, 24));
+        categoryTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                categoryTextFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        jLabel17.setIcon(new javax.swing.ImageIcon("/home/jose/Documentos/octavo_semestre/servicios_web/proyecto/proyecto_p1_rest/imgs/Book.png")); // NOI18N
+        jLabel17.setText("Productos");
+        jLabel17.setToolTipText("");
 
         javax.swing.GroupLayout operationsLayout = new javax.swing.GroupLayout(operations);
         operations.setLayout(operationsLayout);
@@ -333,41 +381,49 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(operationsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(operationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(operationsLayeredPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jSeparator2)
+                    .addComponent(operationsLayeredPane, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(operationsLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addGroup(operationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel17)
+                            .addGroup(operationsLayout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(isbnTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(searchIsbnBtn)
+                                .addGap(93, 93, 93)
+                                .addComponent(jLabel4)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(isbnTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(categoryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchIsbnBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(categoryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchCategoryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(searchCategoryBtn)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         operationsLayout.setVerticalGroup(
             operationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(operationsLayout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(operationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(searchIsbnBtn)
                     .addComponent(isbnTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchIsbnBtn)
                     .addComponent(jLabel4)
                     .addComponent(categoryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchCategoryBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(operationsLayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, 203, Short.MAX_VALUE)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(operationsLayeredPane)
                 .addContainerGap())
         );
 
         jLayeredPane2.add(operations, "card2");
+
+        FormProduct.setBackground(new java.awt.Color(242, 255, 248));
 
         titleFormLabel.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         titleFormLabel.setText("TITLE-FORM");
@@ -404,78 +460,94 @@ public class Principal extends javax.swing.JFrame {
         FormProduct.setLayout(FormProductLayout);
         FormProductLayout.setHorizontalGroup(
             FormProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FormProductLayout.createSequentialGroup()
-                .addGroup(FormProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(FormProductLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(aceptButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cancelButton))
-                    .addGroup(FormProductLayout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addGroup(FormProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(FormProductLayout.createSequentialGroup()
-                                .addComponent(titleFormLabel)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(FormProductLayout.createSequentialGroup()
-                                .addGroup(FormProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel9))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(FormProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(FormProductLayout.createSequentialGroup()
-                                        .addComponent(yearFormTextField)
-                                        .addGap(27, 27, 27)
-                                        .addComponent(jLabel10)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(priceFormTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(FormProductLayout.createSequentialGroup()
-                                        .addComponent(categoFormComBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(isbnFormTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(nameFormTextField)
-                                    .addComponent(authorFormTextField)
-                                    .addComponent(editorialFormTextField))))))
-                .addGap(203, 203, 203))
+            .addGroup(FormProductLayout.createSequentialGroup()
+                .addGap(118, 118, 118)
+                .addComponent(titleFormLabel))
+            .addGroup(FormProductLayout.createSequentialGroup()
+                .addGap(132, 132, 132)
+                .addComponent(jLabel11)
+                .addGap(10, 10, 10)
+                .addComponent(categoFormComBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(isbnFormTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(FormProductLayout.createSequentialGroup()
+                .addGap(113, 113, 113)
+                .addComponent(jLabel6)
+                .addGap(10, 10, 10)
+                .addComponent(nameFormTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(FormProductLayout.createSequentialGroup()
+                .addGap(131, 131, 131)
+                .addComponent(jLabel7)
+                .addGap(10, 10, 10)
+                .addComponent(authorFormTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(FormProductLayout.createSequentialGroup()
+                .addGap(113, 113, 113)
+                .addComponent(jLabel8)
+                .addGap(10, 10, 10)
+                .addComponent(editorialFormTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(FormProductLayout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addComponent(jLabel9)
+                .addGap(10, 10, 10)
+                .addComponent(yearFormTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(jLabel10)
+                .addGap(34, 34, 34)
+                .addComponent(priceFormTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(FormProductLayout.createSequentialGroup()
+                .addGap(283, 283, 283)
+                .addComponent(aceptButton)
+                .addGap(20, 20, 20)
+                .addComponent(cancelButton))
         );
         FormProductLayout.setVerticalGroup(
             FormProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FormProductLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
                 .addComponent(titleFormLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(FormProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(isbnFormTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(categoFormComBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(FormProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
+                .addGap(15, 15, 15)
+                .addGroup(FormProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FormProductLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel11))
+                    .addComponent(categoFormComBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(isbnFormTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(FormProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FormProductLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel6))
                     .addComponent(nameFormTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(FormProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
+                .addGap(10, 10, 10)
+                .addGroup(FormProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FormProductLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel7))
                     .addComponent(authorFormTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(FormProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
+                .addGap(10, 10, 10)
+                .addGroup(FormProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FormProductLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel8))
                     .addComponent(editorialFormTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(FormProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
+                .addGap(10, 10, 10)
+                .addGroup(FormProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(yearFormTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(priceFormTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addGap(18, 18, 18)
-                .addGroup(FormProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cancelButton)
-                    .addComponent(aceptButton))
-                .addGap(0, 27, Short.MAX_VALUE))
+                    .addGroup(FormProductLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addGroup(FormProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10))))
+                .addGap(35, 35, 35)
+                .addGroup(FormProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(aceptButton)
+                    .addComponent(cancelButton)))
         );
 
         jLayeredPane2.add(FormProduct, "card4");
+
+        updatePassPanel.setBackground(new java.awt.Color(242, 255, 248));
 
         updatePassBtn.setText("Cambiar contraseña");
         updatePassBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -505,61 +577,103 @@ public class Principal extends javax.swing.JFrame {
         updatePassPanelLayout.setHorizontalGroup(
             updatePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(updatePassPanelLayout.createSequentialGroup()
-                .addContainerGap(180, Short.MAX_VALUE)
+                .addGap(122, 122, 122)
                 .addGroup(updatePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15)
+                    .addGroup(updatePassPanelLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(updatePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(updatePassPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(updatePassPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(updatePassPanelLayout.createSequentialGroup()
                         .addGroup(updatePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(updatePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(updatePassPanelLayout.createSequentialGroup()
-                                .addComponent(updatePassBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cancelUpdatePassBtn))
-                            .addGroup(updatePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(newPassTextField)
-                                .addComponent(confimPassTextField)
-                                .addComponent(currentPassTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(59, 59, 59))
+                            .addGroup(updatePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(updatePassPanelLayout.createSequentialGroup()
+                                    .addComponent(updatePassBtn)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(cancelUpdatePassBtn))
+                                .addGroup(updatePassPanelLayout.createSequentialGroup()
+                                    .addComponent(jLabel13)
+                                    .addGap(20, 20, 20)
+                                    .addGroup(updatePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(newPassTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                        .addComponent(currentPassTextField)
+                                        .addComponent(confiPassTextField))))
+                            .addComponent(jLabel15))
+                        .addContainerGap(115, Short.MAX_VALUE))))
         );
         updatePassPanelLayout.setVerticalGroup(
             updatePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, updatePassPanelLayout.createSequentialGroup()
+            .addGroup(updatePassPanelLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
                 .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
                 .addGroup(updatePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(currentPassTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jLabel12)
+                    .addComponent(currentPassTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
                 .addGroup(updatePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(newPassTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jLabel14)
+                    .addComponent(newPassTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
                 .addGroup(updatePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(confimPassTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
-                .addGap(45, 45, 45)
-                .addGroup(updatePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(confiPassTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addGroup(updatePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(updatePassBtn)
                     .addComponent(cancelUpdatePassBtn))
-                .addContainerGap())
+                .addGap(51, 51, 51))
         );
 
         jLayeredPane2.add(updatePassPanel, "card5");
 
-        btnIngresar.setText("Ingresar ");
-        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIngresarActionPerformed(evt);
-            }
-        });
-
         stateLabel.setText("state");
 
-        userLabel.setToolTipText("");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(logoUserLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(userLabel)
+                .addGap(87, 87, 87))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(stateLabel)))
+                .addContainerGap(23, Short.MAX_VALUE))
+            .addComponent(jSeparator1)
+            .addComponent(jSeparator3)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(userLabel)
+                    .addComponent(logoUserLabel))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(stateLabel)
+                .addContainerGap())
+        );
+
+        menu.setBackground(new java.awt.Color(113, 179, 142));
 
         jMenu2.setText("Sesion");
 
@@ -587,48 +701,11 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jSeparator1)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator4)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(stateLabel)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLayeredPane2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(userIconLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(userLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(12, 12, 12))))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 634, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userLabel)
-                    .addComponent(btnIngresar)
-                    .addComponent(userIconLabel))
-                .addGap(17, 17, 17)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(stateLabel)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)
         );
 
         pack();
@@ -674,13 +751,6 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_searchIsbnBtnActionPerformed
 
-    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-        jLayeredPane2.removeAll();
-        jLayeredPane2.add(this.login);
-        jLayeredPane2.repaint();
-        jLayeredPane2.revalidate();
-    }//GEN-LAST:event_btnIngresarActionPerformed
-
     private void searchCategoryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCategoryBtnActionPerformed
         if( categoryTextField.getText().length() > 0)
         {
@@ -718,6 +788,7 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         user = "";
         pass = "";
+        userLabel.setText("");
         changeState(String.valueOf(1), "Sesión finalizada");
         changeCard(jLayeredPane2, login);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
@@ -809,36 +880,6 @@ public class Principal extends javax.swing.JFrame {
         }
     }
     
-    private void aceptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptButtonActionPerformed
-
-        String category = String.valueOf(categoFormComBox.getSelectedItem());
-        Detail producto = new Detail(
-                Integer.parseInt(yearFormTextField.getText()),
-                authorFormTextField.getText(),
-                editorialFormTextField.getText(),
-                category+isbnFormTextField.getText(),
-                nameFormTextField.getText(),
-                priceFormTextField.getText()
-        );
-        
-        switch (stateForm){
-            case UPDATE_FORM: actulizarProducto(producto, evt); break;
-            case CREATE_FORM: setProdcut(producto, evt); break;
-        }
-    }//GEN-LAST:event_aceptButtonActionPerformed
-
-    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        int reply = JOptionPane.showConfirmDialog(
-            this, "¿Estas seguro?",
-            "", JOptionPane.YES_NO_OPTION
-        );
-
-        if (reply == JOptionPane.YES_OPTION)
-        {
-            changeCard(jLayeredPane2, operations);
-        }
-    }//GEN-LAST:event_cancelButtonActionPerformed
-
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         if( proDetails != null)
         {
@@ -853,6 +894,8 @@ public class Principal extends javax.swing.JFrame {
                 {
                     showMessage(String.valueOf(res.getCode()), 
                             res.getMessage(),JOptionPane.INFORMATION_MESSAGE);
+                    isbnTextField.setText("");
+                    detailTextArea.setText("");
                 }
                 else
                 {
@@ -879,75 +922,26 @@ public class Principal extends javax.swing.JFrame {
         changeCard(jLayeredPane2, updatePassPanel);
     }//GEN-LAST:event_updatePassMenuItemActionPerformed
 
-    private void cancelUpdatePassBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelUpdatePassBtnActionPerformed
-        int reply = JOptionPane.showConfirmDialog(
-            this, "¿Seguro quiere cancelar?",
-            "", JOptionPane.YES_NO_OPTION
-        );
-        
-        if( reply == JOptionPane.YES_OPTION)
-            changeCard(jLayeredPane2, operations);
-    }//GEN-LAST:event_cancelUpdatePassBtnActionPerformed
-
     private void clearFormUpdatePass(){
         currentPassTextField.setText("");
         newPassTextField.setText("");
-        confimPassTextField.setText("");    
+        confiPassTextField.setText("");    
     }
     
-    private void updatePassBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatePassBtnActionPerformed
-        int reply = JOptionPane.showConfirmDialog(
-            this, "¿Seguro quiere acntualizar contraseña?",
-            "", JOptionPane.YES_NO_OPTION
-        );
-        
-        if( reply == JOptionPane.YES_OPTION)
-            if (    currentPassTextField.getText().length() <= 0 ||
-                    newPassTextField.getText().length()     <= 0 ||
-                    confimPassTextField.getText().length()  <= 0 )
-            {
-                showMessage("-1", "Campos vacios", JOptionPane.ERROR_MESSAGE);
-            }
-            else
-            {
-                if (newPassTextField.getText().equals(confimPassTextField.getText()) )
-                {
-                    ResponseUpdatePass res = conection.updatePass(
-                        user, 
-                        currentPassTextField.getText(), 
-                        newPassTextField.getText());
-                
-                    clearFormUpdatePass();
-                
-                    int typeMessage = (res.getCode()==400)
-                        ? JOptionPane.INFORMATION_MESSAGE
-                        : JOptionPane.ERROR_MESSAGE;
-            
-                    showMessage(String.valueOf(res.getCode()), res.getMessage(), 
-                    typeMessage);
-                
-                    changeCard(jLayeredPane2, operations);
-                }
-                else
-                {
-                    showMessage("-1", "Las contraeñas no coinciden", JOptionPane.ERROR_MESSAGE);
-                }
-        }
-    }//GEN-LAST:event_updatePassBtnActionPerformed
-
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
+        
+        rol = String.valueOf(categoFormComBox.getSelectedItem());
         
         ResponseUpdatePass res =  conection.updatePass(
             userTextField.getText(),
-            passTextField1.getText(),
+            String.valueOf(passTextField.getPassword()),
             "");
 
-        // if the code is 502 this mean
-        // that the user & pass is right
+        // if the code is 502 this mean that the user & pass is right
         if( res.getCode() == 502 )
         {
             user = userTextField.getText();
-            pass = passTextField1.getText();
+            pass = String.valueOf(passTextField.getPassword());
             userLabel.setText(user);
             changeCard(jLayeredPane2, operations);
         }
@@ -958,10 +952,109 @@ public class Principal extends javax.swing.JFrame {
             showMessage(String.valueOf(res.getCode()), 
                     res.getMessage(), JOptionPane.ERROR_MESSAGE);
         }
+        
+        if( rol == "Ventas")
+        {
+            updateButton.setVisible(false);
+            createButton.show(false);
+            deleteButton.show(false);
+        }
+        else
+        {
+            updateButton.setEnabled(true);
+            createButton.setEnabled(true);
+            deleteButton.setEnabled(true);
+        }
 
         userTextField.setText("");
-        userTextField.setText("");
+        passTextField.setText("");
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
+
+    private void aceptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptButtonActionPerformed
+
+        String category = String.valueOf(categoFormComBox.getSelectedItem());
+        Detail producto = new Detail(
+            Integer.parseInt(yearFormTextField.getText()),
+            authorFormTextField.getText(),
+            editorialFormTextField.getText(),
+            category+isbnFormTextField.getText(),
+            nameFormTextField.getText(),
+            priceFormTextField.getText()
+        );
+
+        switch (stateForm){
+            case UPDATE_FORM: actulizarProducto(producto, evt); break;
+            case CREATE_FORM: setProdcut(producto, evt); break;
+        }
+    }//GEN-LAST:event_aceptButtonActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        int reply = JOptionPane.showConfirmDialog(
+            this, "¿Estas seguro?",
+            "", JOptionPane.YES_NO_OPTION
+        );
+
+        if (reply == JOptionPane.YES_OPTION)
+        {
+            changeCard(jLayeredPane2, operations);
+        }
+    }//GEN-LAST:event_cancelButtonActionPerformed
+
+    private void categoryTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoryTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_categoryTextFieldActionPerformed
+
+    private void cancelUpdatePassBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelUpdatePassBtnActionPerformed
+        int reply = JOptionPane.showConfirmDialog(
+            this, "¿Seguro quiere cancelar?",
+            "", JOptionPane.YES_NO_OPTION
+        );
+
+        if( reply == JOptionPane.YES_OPTION)
+        changeCard(jLayeredPane2, operations);
+    }//GEN-LAST:event_cancelUpdatePassBtnActionPerformed
+
+    private void updatePassBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatePassBtnActionPerformed
+        int reply = JOptionPane.showConfirmDialog(
+            this, "¿Seguro quiere acntualizar contraseña?",
+            "", JOptionPane.YES_NO_OPTION
+        );
+        
+        String current =  String.valueOf(currentPassTextField.getPassword());
+        String newPass =  String.valueOf(newPassTextField.getPassword());
+        String confiPass =  String.valueOf(confiPassTextField.getPassword());
+
+        if( reply == JOptionPane.YES_OPTION)
+        if ( current.length() <= 0 ||
+             newPass.length() <= 0 ||
+             confiPass.length()  <= 0 )
+        {
+            showMessage("-1", "Campos vacios", JOptionPane.ERROR_MESSAGE);
+        }
+        else
+        {
+            if (newPass.equals(confiPass) )
+            {
+                ResponseUpdatePass res = conection.updatePass(
+                    user, current, newPass);
+
+                clearFormUpdatePass();
+
+                int typeMessage = (res.getCode()==400)
+                ? JOptionPane.INFORMATION_MESSAGE
+                : JOptionPane.ERROR_MESSAGE;
+
+                showMessage(String.valueOf(res.getCode()), res.getMessage(),
+                    typeMessage);
+
+                changeCard(jLayeredPane2, operations);
+            }
+            else
+            {
+                showMessage("-1", "Las contraeñas no coinciden", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_updatePassBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1002,15 +1095,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel FormProduct;
     private javax.swing.JButton aceptButton;
     private javax.swing.JTextField authorFormTextField;
-    private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnIniciarSesion;
     private javax.swing.JButton cancelButton;
     private javax.swing.JButton cancelUpdatePassBtn;
     private javax.swing.JComboBox<String> categoFormComBox;
     private javax.swing.JTextField categoryTextField;
-    private javax.swing.JTextField confimPassTextField;
+    private javax.swing.JPasswordField confiPassTextField;
     private javax.swing.JButton createButton;
-    private javax.swing.JTextField currentPassTextField;
+    private javax.swing.JPasswordField currentPassTextField;
     private javax.swing.JButton deleteButton;
     private javax.swing.JPanel detailProdJPanel;
     private javax.swing.JTextArea detailTextArea;
@@ -1024,9 +1116,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1034,22 +1128,25 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JPanel login;
     private javax.swing.JLabel logoLabel;
+    private javax.swing.JLabel logoUserLabel;
     private javax.swing.JMenuBar menu;
     private javax.swing.JTextField nameFormTextField;
-    private javax.swing.JTextField newPassTextField;
+    private javax.swing.JPasswordField newPassTextField;
     private javax.swing.JPanel operations;
     private javax.swing.JLayeredPane operationsLayeredPane;
-    private javax.swing.JTextField passTextField1;
+    private javax.swing.JPasswordField passTextField;
     private javax.swing.JTextField priceFormTextField;
     private javax.swing.JPanel prodsCateJPanel;
     private javax.swing.JTextArea prodsCateTextArea;
+    private javax.swing.JComboBox<String> rolesComboBox;
     private javax.swing.JButton searchCategoryBtn;
     private javax.swing.JButton searchIsbnBtn;
     private javax.swing.JLabel stateLabel;
