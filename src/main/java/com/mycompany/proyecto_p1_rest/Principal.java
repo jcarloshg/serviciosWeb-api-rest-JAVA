@@ -197,7 +197,7 @@ public class Principal extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.ipadx = 139;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         login.add(userTextField, gridBagConstraints);
 
@@ -231,7 +231,7 @@ public class Principal extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         login.add(rolesComboBox, gridBagConstraints);
 
@@ -247,6 +247,8 @@ public class Principal extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         login.add(passTextField, gridBagConstraints);
 
         jLayeredPane2.add(login, "card3");
@@ -582,28 +584,22 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(updatePassPanelLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(updatePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(updatePassPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel14)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(updatePassPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(updatePassPanelLayout.createSequentialGroup()
-                        .addGroup(updatePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(updatePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(updatePassPanelLayout.createSequentialGroup()
-                                    .addComponent(updatePassBtn)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(cancelUpdatePassBtn))
-                                .addGroup(updatePassPanelLayout.createSequentialGroup()
-                                    .addComponent(jLabel13)
-                                    .addGap(20, 20, 20)
-                                    .addGroup(updatePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(newPassTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                        .addComponent(currentPassTextField)
-                                        .addComponent(confiPassTextField))))
-                            .addComponent(jLabel15))
-                        .addContainerGap(115, Short.MAX_VALUE))))
+                            .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING)))
+                    .addGroup(updatePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(updatePassPanelLayout.createSequentialGroup()
+                            .addComponent(updatePassBtn)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(cancelUpdatePassBtn))
+                        .addGroup(updatePassPanelLayout.createSequentialGroup()
+                            .addComponent(jLabel13)
+                            .addGap(20, 20, 20)
+                            .addGroup(updatePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(newPassTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                .addComponent(currentPassTextField)
+                                .addComponent(confiPassTextField))))
+                    .addComponent(jLabel15))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         updatePassPanelLayout.setVerticalGroup(
             updatePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -640,9 +636,9 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(logoUserLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(userLabel)
-                .addGap(87, 87, 87))
+                .addGap(35, 35, 35))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -658,17 +654,17 @@ public class Principal extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(6, 6, 6)
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userLabel)
                     .addComponent(logoUserLabel))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(stateLabel)
                 .addContainerGap())
         );
@@ -705,7 +701,7 @@ public class Principal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
         );
 
         pack();
@@ -929,9 +925,7 @@ public class Principal extends javax.swing.JFrame {
     }
     
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
-        
-        rol = String.valueOf(categoFormComBox.getSelectedItem());
-        
+             
         ResponseUpdatePass res =  conection.updatePass(
             userTextField.getText(),
             String.valueOf(passTextField.getPassword()),
@@ -953,6 +947,7 @@ public class Principal extends javax.swing.JFrame {
                     res.getMessage(), JOptionPane.ERROR_MESSAGE);
         }
         
+        rol = String.valueOf(rolesComboBox.getSelectedItem());
         if( rol == "Ventas")
         {
             updateButton.setVisible(false);
